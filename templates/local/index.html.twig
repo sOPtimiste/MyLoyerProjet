@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Local index{% endblock %}
+{% block title %}Liste local{% endblock %}
 
 {% block body %}
-    <h1>Local index</h1>
-
-    <table class="table">
+<h1>Liste des locaux</h1>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Id</th>
@@ -14,30 +14,39 @@
                 <th>IsEtat</th>
                 <th>Longitude</th>
                 <th>Latitude</th>
+                <th>TypeLocal</th>
+                <th>Description</th>
+                <th>nom site</th>
+                <th>Lieu</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for local in locals %}
+            {% for local in locals %}
             <tr>
                 <td>{{ local.id }}</td>
                 <td>{{ local.nom }}</td>
                 <td>{{ local.adresse }}</td>
-                <td>{{ local.isEtat ? 'Yes' : 'No' }}</td>
+                <td>{{ local.isEtat ? 'disponible' : 'occupe' }}</td>
                 <td>{{ local.longitude }}</td>
                 <td>{{ local.latitude }}</td>
+                <td>{{ local.typeLocal.type }}</td>
+                <td>{{ local.typeLocal.description }}</td>
+                <td>{{ local.site.nom}}</td>
+                <td>{{ local.site.lieu}}</td>
                 <td>
                     <a href="{{ path('local_show', {'id': local.id}) }}">show</a>
                     <a href="{{ path('local_edit', {'id': local.id}) }}">edit</a>
                 </td>
             </tr>
-        {% else %}
+            {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">pas d'enregistrement</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('local_new') }}">Create new</a>
+<a href="{{ path('local_new') }}">Ajouter</a>
 {% endblock %}

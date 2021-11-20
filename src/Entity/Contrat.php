@@ -30,7 +30,7 @@ class Contrat
     private $typeContrat;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="date")
      */
     private $createAt;
 
@@ -181,4 +181,10 @@ class Contrat
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
 }

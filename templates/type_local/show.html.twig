@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeLocal{% endblock %}
+
+{% block body %}
+    <h1>TypeLocal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_local.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ type_local.type }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ type_local.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_local_index') }}">back to list</a>
+
+    <a href="{{ path('type_local_edit', {'id': type_local.id}) }}">edit</a>
+
+    {{ include('type_local/_delete_form.html.twig') }}
+{% endblock %}
