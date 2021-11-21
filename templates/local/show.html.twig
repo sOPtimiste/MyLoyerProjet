@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>IsEtat</th>
-                <td>{{ local.isEtat ? 'Yes' : 'No' }}</td>
+                <td>{{ local.isEtat ? 'occupe' : 'disponible' }}</td>
             </tr>
             <tr>
                 <th>Longitude</th>
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('local_index') }}">back to list</a>
+    <a href="{{ path('local_index') }}">Retour</a>
 
     <a href="{{ path('local_edit', {'id': local.id}) }}">edit</a>
 

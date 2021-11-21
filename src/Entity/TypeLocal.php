@@ -30,7 +30,7 @@ class TypeLocal
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Local::class, mappedBy="typeLocal", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Local::class, mappedBy="typeLocal", orphanRemoval=true,cascade={"persist","remove"})
      */
     private $locals;
 

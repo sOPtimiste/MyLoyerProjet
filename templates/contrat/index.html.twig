@@ -10,7 +10,7 @@
             <tr>
                 <th>Nom</th>
                 <th>TypeContrat</th>
-               <th>TypeDeLocal</th>
+               <th>Nom Local</th>
                 <th>CreateAt</th>
                 <th>DureeBail/mois</th>
                 <th>MontantCaution/FCFA</th>
@@ -23,7 +23,7 @@
             <tr>
                 <td>{{ contrat.nom }}</td>
                 <td>{{ contrat.typeContrat }}</td>
-                <td>{{ contrat.local.typeLocal.type }}</td>
+                <td>{{ contrat.local }}</td>
                 <td>{{ contrat.createAt ? contrat.createAt|date('d-m-Y') : '' }}</td>
                 <td>{{ contrat.dureeDeBail }}</td>
                 <td>{{ contrat.montantDeCotion }}</td>

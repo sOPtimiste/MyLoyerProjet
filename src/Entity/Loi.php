@@ -25,7 +25,7 @@ class Loi
     private $libelle;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 

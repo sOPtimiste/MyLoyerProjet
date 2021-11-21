@@ -67,6 +67,12 @@ class Local
      */
     private $site;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Bailleur::class, inversedBy="locals")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $bailleur;
+
     public function __construct()
     {
         $this->factures = new ArrayCollection();
@@ -206,6 +212,18 @@ class Local
     public function __toString()
     {
         return $this->nom;
+    }
+
+    public function getBailleur(): ?Bailleur
+    {
+        return $this->bailleur;
+    }
+
+    public function setBailleur(?Bailleur $bailleur): self
+    {
+        $this->bailleur = $bailleur;
+
+        return $this;
     }
 
    

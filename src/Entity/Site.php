@@ -30,7 +30,7 @@ class Site
     private $lieu;
 
     /**
-     * @ORM\OneToMany(targetEntity=Local::class, mappedBy="site", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Local::class, mappedBy="site", orphanRemoval=true,cascade={"persist","remove"})
      */
     private $locals;
 

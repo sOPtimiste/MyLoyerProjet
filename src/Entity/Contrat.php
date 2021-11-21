@@ -30,7 +30,7 @@ class Contrat
     private $typeContrat;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $createAt;
 
@@ -50,7 +50,7 @@ class Contrat
     private $montant_du_mensualite;
 
     /**
-     * @ORM\OneToOne(targetEntity=Local::class, mappedBy="contrat", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Local::class, mappedBy="contrat",cascade={"persist", "remove"})
      */
     private $local;
 
@@ -58,6 +58,11 @@ class Contrat
      * @ORM\ManyToMany(targetEntity=Loi::class, inversedBy="contrats")
      */
     private $lois;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Superviseur::class, inversedBy="contrats")
+     */
+    private $superviseur;
 
     public function __construct()
     {
@@ -93,12 +98,12 @@ class Contrat
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreateAt(): ?\DateTimeInterface
     {
         return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeImmutable $createAt): self
+    public function setCreateAt(\DateTimeInterface $createAt): self
     {
         $this->createAt = $createAt;
 
@@ -185,6 +190,18 @@ class Contrat
     public function __toString()
     {
         return $this->nom;
+    }
+
+    public function getSuperviseur(): ?Superviseur
+    {
+        return $this->superviseur;
+    }
+
+    public function setSuperviseur(?Superviseur $superviseur): self
+    {
+        $this->superviseur = $superviseur;
+
+        return $this;
     }
 
 }
