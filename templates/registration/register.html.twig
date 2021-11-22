@@ -1,20 +1,60 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'authenticate.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="">
+    <h1 class="h4 text-gray-900 mb-4">Creer un compte!</h1>
+
+
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.email) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-    <div>
-        <p>Connectez vous en  cliquant <a href="{{path('app_login')}}">ici</a></p>
+            }) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.nom) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.prenom) }}</div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0"> {{ form_row(registrationForm.age) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.nationalite) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.num_piece) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.genre) }}</div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.telephone) }}</div>
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.profession) }}</div>
+        {#{{ form_row(registrationForm.roles) }}#}
+        <div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.agreeTerms) }}</div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+    
+    <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
+        Register Account
+    </a> -->
+    <hr>
+    <a href="#" class="btn btn-google btn-user btn-block">
+        <i class="fab fa-google fa-fw"></i> Register with Google
+    </a>
+    <a href="#" class="btn btn-facebook btn-user btn-block">
+        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+    </a>
+
+    <div class="text-center">
+        <a class="small" href="#">Mot de passe oublié</a>
+    </div>
+    <div class="text-center">
+        <a class="small" href="{{path('app_login')}}">vous avez deja compte? Login!</a>
+    </div>
+
+    
+
+</div>
 {% endblock %}

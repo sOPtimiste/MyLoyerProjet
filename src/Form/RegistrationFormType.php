@@ -3,11 +3,13 @@
 namespace App\Form;
 
 use App\Entity\User;
-use PhpParser\Parser\Multiple;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -19,7 +21,11 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email',EmailType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -31,6 +37,9 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                "attr" => [
+                    "class" => "form-control"
+                ],
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
@@ -45,11 +54,31 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('nom')
-            ->add('prenom')
-            ->add('age')
-            ->add('nationalite')
-            ->add('num_piece')
+            ->add('nom',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
+            ->add('prenom',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
+            ->add('age',IntegerType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
+            ->add('nationalite',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
+            ->add('num_piece',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
             ->add('genre', ChoiceType::class, [
                 'choices'  => [
                     'genre' => null,
@@ -57,19 +86,26 @@ class RegistrationFormType extends AbstractType
                     'Femele' => false,
                 ],
             ])
-            ->add('telephone')
-            ->add('profession')
-            ->add(
-                'roles',
-                ChoiceType::class,
-                array(
-                    'choices' => array(
-                        'ROLE_USER' => 'user',
-                        'ROLE_BAILLEUR' => 'bailleur',
-                    ),
-                    'multiple' => true 
-                )
-            );
+            ->add('telephone',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ])
+            ->add('profession',TextType::class,[
+                "attr" => [
+                    "class" => "form-control"
+                ]
+            ]);
+            //->add('roles');
+                //ChoiceType::class,
+                // array(
+                //     'choices' => array(
+                //         'ROLE_USER' => 'user',
+                //         //'ROLE_ADMIN' => 'bailleur',
+                //     ),
+                //     //'multiple' => true 
+                // )
+            //);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
