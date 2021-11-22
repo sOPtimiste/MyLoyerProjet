@@ -1,0 +1,37 @@
+{% extends "@EasyAdmin/layout.html.twig" %}
+
+{% block content %}
+	<div class="jumbotron">
+		<h1 class="display-4">Administration</h1>
+		<p class="lead">Bienvenue sur l'interface d'administration des agences immobilieres.</p>
+
+		<div class="row justify-content-md-center">
+			<div class="col">
+				<button type="button" class="btn btn-primary position-relative">
+					Utilisateur
+					<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+						{#{{countAllUsers['value']}}#}10
+						<span class="visually-hidden">unread messages</span>
+					</span>
+				</button>
+
+			</div>
+			<div class="col">
+				<button type="button" class="btn btn-primary position-relative">
+					Contrats
+					<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+						{#{{countAllALois['value']}}#}15
+						<span class="visually-hidden">unread messages</span>
+					</span>
+				</button>
+
+			</div>
+			<div class="col">
+				<button type="button" class="btn btn-primary">
+					Commentaires
+					<span class="badge bg-secondary">4</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

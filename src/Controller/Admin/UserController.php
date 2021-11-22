@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Bailleur;
 use App\Entity\Locataire;
 use App\Entity\Loi;
+use App\Entity\Message;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -18,13 +19,17 @@ class UserController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        return $this->render('admin/dashboard.html.twig',[
+
+            //'countAllUsers' => $this->UserRepository->getCountUser(),
+           //'countAllAnnounces' => $this->announceRepository->getCountAnnounce()
+        ]);
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Gestion locative intrerface administration');
+            ->setTitle('GESTION LOCATIVE');
     }
 
     public function configureMenuItems(): iterable
@@ -33,5 +38,6 @@ class UserController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gestion Bailleur', 'fas fa-user', Bailleur::class);
         yield MenuItem::linkToCrud('Gestion Locataire', 'fas fa-user', Locataire::class);
         yield MenuItem::linkToCrud('Gestion lois', 'fas fa-gavel', Loi::class);
+        yield MenuItem::linkToCrud('Gestion FeedBack', 'fas fa-sms', Message::class);
     }
 }

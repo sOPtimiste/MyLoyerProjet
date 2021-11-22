@@ -27,7 +27,7 @@ class Loi
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="text")
@@ -61,14 +61,14 @@ class Loi
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setCreatedAT(\DateTime $createdAT): self
     {
-        $this->date = $date;
+        $this->date = $createdAT;
 
         return $this;
     }
