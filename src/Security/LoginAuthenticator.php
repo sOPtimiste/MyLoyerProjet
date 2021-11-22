@@ -23,10 +23,12 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
     public const LOGIN_ROUTE = 'app_login';
 
     private UrlGeneratorInterface $urlGenerator;
+    //private Security $security;
 
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
+        //$this->security = $security;
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -50,8 +52,21 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+        $user = $token->getUser();
+
+        if (in_array("ROLE_ADMIN", $user->getRoles())) {
+                 return new RedirectResponse($this->urlGenerator->generate('admin'));
+            }
+            
+            return new RedirectResponse($this->urlGenerator->generate('home'));
+         // ATTENTION AVEC CECI LE ROLE ADMIN ET SUPER_ADMIN SERONT AUSSI REDIRIGE
+        //  if ($this->security->isGranted("ROLE_ADMIN")) {
+        //     return new RedirectResponse($this->urlGenerator->generate('admin'));
+        // }
+        // return new RedirectResponse($this->urlGenerator->generate('home'));
+
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+        //return new RedirectResponse($this->urlGenerator->generate('home'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
