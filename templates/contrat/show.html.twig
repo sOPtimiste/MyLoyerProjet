@@ -3,9 +3,12 @@
 {% block title %}Contrat{% endblock %}
 
 {% block body %}
-    <h1>Contrat</h1>
+<div class="mt-auto">
+    <Fieldset class="mt-3">
+        <legend class="h1 text-center  text-success">Detail du contrat</legend>
+    </Fieldset>
 
-    <table class="table">
+    <table class="table text-dark">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -38,9 +41,19 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contrat_index') }}">back to list</a>
+    <a href="{{ path('contrat_index') }}">
+        <span class="icon">
+            <i class="fas fa-arrow-circle-right"></i>
+        </span>
+        <spaan class="text mr-3">Retour</spaan>
+    </a>
 
-    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">edit</a>
+    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">
+        <span class="icon"><i class="fas fa-edit"></i></span>
+        <spaan class="text mr-3">Modifier</spaan>
+    </a>
 
     {{ include('contrat/_delete_form.html.twig') }}
+
+</div>
 {% endblock %}

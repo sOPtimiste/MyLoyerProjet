@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Contrat{% endblock %}
+{% block title %}Nouvel Contrat{% endblock %}
 
 {% block body %}
-    <h1>Create new Contrat</h1>
+<fieldset class="mt-3">
+    <legend class="h1 text-center  text-success">Creation de  Contrat</legend>
 
     {{ include('contrat/_form.html.twig') }}
+</fieldset>
 
-    <a href="{{ path('contrat_index') }}">back to list</a>
+<a href="{{ path('contrat_index') }}">
+    <span class="icon">
+        <i class="fas fa-arrow-circle-right"></i>
+    </span>
+    <spaan class="text">Retour</spaan>
+</a>
 {% endblock %}

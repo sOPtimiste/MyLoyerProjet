@@ -1,4 +1,48 @@
+<div class="container mx-auto text-dark" style="background-color: #ABBAEA;">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.typeContrat) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.local) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.createAt) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.duree_de_bail) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.montant_de_cotion) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.montant_du_mensualite) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.lois) }}
+        </div>
+
+    </div>
+
+</div>
+{#<button class="btn btn-primary btn-user btn-block">{{ button_label|default('Save') }}</button>#}
+<div class="d-grid gap-2 d-md-block text-center mt-2">
+    <button class="btn btn-outline-primary" type="button">{{ button_label|default('Save') }}</button>
+</div>
+
+
 {{ form_end(form) }}

@@ -11,6 +11,8 @@
 
     {% block stylesheets %}
     <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
@@ -33,10 +35,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('home')}}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Sms Bailleur <sup>2</sup></div>
+                <div class="logo"> <img class="rounded-circle" src="{{asset('img/logo.png')}}"
+                        width="70px;" alt="..."></div>
             </a>
 
             <!-- Divider -->
@@ -67,7 +67,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Loyers:</h6>
-                        
+
                         <a class="collapse-item" href="{{path('contrat_index')}}">Contrat</a>
                         <a class="collapse-item" href="{{path('type_local_index')}}">TypeLocal</a>
                         <a class="collapse-item" href="{{path('site_index')}}">Site</a>
@@ -268,7 +268,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_1.svg')}}" alt="...">
+                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_1.svg')}}"
+                                            alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -279,7 +280,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_2.svg')}}" alt="...">
+                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_2.svg')}}"
+                                            alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -290,7 +292,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_3.svg')}}" alt="...">
+                                        <img class="rounded-circle" src="{{asset('img/undraw_profile_3.svg')}}"
+                                            alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -340,7 +343,8 @@
                                     Activite
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{path('app_logout')}}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{path('app_logout')}}" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Deconnexion
                                 </a>
@@ -364,7 +368,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; My loyer au  Senegal sms {{"now"|date("Y")}} !</span>
+                        <span>Copyright &copy; My loyer au Senegal sms {{"now"|date("Y")}} !</span>
                     </div>
                 </div>
             </footer>
@@ -420,6 +424,14 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+            } )
+    </script>
 
     {% endblock %}
 </body>

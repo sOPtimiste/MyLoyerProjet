@@ -23,4 +23,12 @@ class HomeController extends AbstractController
     {
         return $this->redirectToRoute('app_login');
     }
+
+     /**
+     * @Route("/stats", name="stats")
+     */
+    public function statistique(): Response
+    {
+        return $this->redirectToRoute('app_login');
+    }
 }

@@ -1,45 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contrat index{% endblock %}
+{% block title %}liste contrat{% endblock %}
 
 {% block body %}
-    <h1>Contrat index</h1>
+<h1>Liste des contrats</h1>
+<div class="pull-right">
+    
+</div>
+<div class="container mt-2">
+    <a href="{{ path('contrat_new') }}">
+       <span class="icon"><i class="fas fa-plus"></i></span>
+       <span class="text">Add</span> 
+    </a>
+    <div class="row">
+        <div class="col">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>TypeCo</th>
+                        <th>Local</th>
+                        <th>CreateAt</th>
+                        <th>DureeBail</th>
+                        <th>Caution</th>
+                        <th>Mensualite</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contrat in contrats %}
+                    <tr>
+                        <td>{{ contrat.nom }}</td>
+                        <td>{{ contrat.typeContrat }}</td>
+                        <td>{{ contrat.local }}</td>
+                        <td>{{ contrat.createAt ? contrat.createAt|date('d-m-Y') : '' }}</td>
+                        <td>{{ contrat.dureeDeBail }} /mois</td>
+                        <td>{{ contrat.montantDeCotion }} FCFA</td>
+                        <td>{{ contrat.montantDuMensualite }} FCFA</td>
+                        <td>
+                            <a href="{{ path('contrat_show', {'id': contrat.id}) }}">
+                                <span class="icon"><i class="far fa-eye"></i></span>
+                            </a>
+                            <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8">pas d'enregistrement</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>TypeContrat</th>
-               <th>Nom Local</th>
-                <th>CreateAt</th>
-                <th>DureeBail/mois</th>
-                <th>MontantCaution/FCFA</th>
-                <th>Mensualite/FCFA</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contrat in contrats %}
-            <tr>
-                <td>{{ contrat.nom }}</td>
-                <td>{{ contrat.typeContrat }}</td>
-                <td>{{ contrat.local }}</td>
-                <td>{{ contrat.createAt ? contrat.createAt|date('d-m-Y') : '' }}</td>
-                <td>{{ contrat.dureeDeBail }}</td>
-                <td>{{ contrat.montantDeCotion }}</td>
-                <td>{{ contrat.montantDuMensualite }}</td>
-                <td>
-                    <a href="{{ path('contrat_show', {'id': contrat.id}) }}">show</a>
-                    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('contrat_new') }}">Create new</a>
+</div>
+
+
+{% block js %}
+
+{% endblock js %}
 {% endblock %}
