@@ -3,11 +3,19 @@
 {% block title %}Edit TypeLocal{% endblock %}
 
 {% block body %}
-    <h1>Edit TypeLocal</h1>
-
+<fieldset class="mt-3 text-dark">
+    <legend class="h1 text-center  text-success">Modification du type local</legend>
     {{ include('type_local/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('type_local_index') }}">back to list</a>
+    <a href="{{ path('type_local_index') }}">
+        <span class="icon">
+            <i class="fas fa-arrow-circle-right"></i>
+        </span>
+        <spaan class="text">Retour</spaan>
+    </a>
 
     {{ include('type_local/_delete_form.html.twig') }}
+
+</fieldset>
+
 {% endblock %}

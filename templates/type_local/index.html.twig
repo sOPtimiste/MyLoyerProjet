@@ -1,37 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TypeLocal index{% endblock %}
+{% block title %}liste des types de locaux{% endblock %}
 
 {% block body %}
-    <h1>TypeLocal index</h1>
+<h1 class="text-center  text-success">liste des types de locaux</h1>
+<div class="container">
+    <a href="{{ path('type_local_new') }}">
+        <span class="icon"><i class="fas fa-plus"></i></span>
+        <span class="text">Add</span>
+    </a>
+    <div class="row">
+        <div class="col">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for type_local in type_locals %}
-            <tr>
-                <td>{{ type_local.id }}</td>
-                <td>{{ type_local.type }}</td>
-                <td>{{ type_local.description }}</td>
-                <td>
-                    <a href="{{ path('type_local_show', {'id': type_local.id}) }}">show</a>
-                    <a href="{{ path('type_local_edit', {'id': type_local.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <table id="example" class="table table-striped table-responsive" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for type_local in type_locals %}
+                    <tr>
+                        <td>{{ type_local.id }}</td>
+                        <td>{{ type_local.type }}</td>
+                        <td>{{ type_local.description }}</td>
+                        <td>
+                            <a href="{{ path('type_local_show', {'id': type_local.id}) }}">
+                                <span class="icon"><i class="far fa-eye"></i></span>
+                            </a>
+                            <a href="{{ path('type_local_edit', {'id': type_local.id}) }}">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8">pas d'enregistrement</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    <a href="{{ path('type_local_new') }}">Create new</a>
 {% endblock %}

@@ -3,11 +3,19 @@
 {% block title %}Edit Site{% endblock %}
 
 {% block body %}
-    <h1>Edit Site</h1>
-
+<fieldset class="mt-3 text-dark">
+    <legend class="h1 text-center  text-success">Modification du site</legend>
     {{ include('site/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('site_index') }}">back to list</a>
+    <a href="{{ path('site_index') }}"><span class="icon">
+            <i class="fas fa-arrow-circle-right"></i>
+        </span>
+        <spaan class="text">Retour</spaan>
+    </a>
 
     {{ include('site/_delete_form.html.twig') }}
+</fieldset>
+
+
+
 {% endblock %}

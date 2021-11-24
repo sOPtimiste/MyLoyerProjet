@@ -1,4 +1,17 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="container mx-auto text-dark" style="background-color: #ABBAEA;">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.lieu) }}
+        </div>
+
+    </div>
+
+
+</div>
+<button class="btn btn-primary align-self-center mt-2">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

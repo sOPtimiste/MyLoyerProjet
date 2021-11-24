@@ -1,4 +1,41 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container mx-auto text-dark" style="background-color: #ABBAEA;">
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.adresse) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.isEtat) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.longitude) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.latitude) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.contrat) }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.typeLocal) }}
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            {{ form_row(form.site) }}
+        </div>
+
+    </div>
+    <button class="btn btn-primary align-self-center mt-2">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>

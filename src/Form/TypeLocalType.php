@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\TypeLocal;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,8 +14,20 @@ class TypeLocalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('type')
-            ->add('description')
+            ->add('type',TextType::class,[
+                'label' => 'Type de local',
+                "attr" => [
+                    "class" => "form-control",
+                    "placeholder" => "Type de local"
+                ]
+            ])
+            ->add('description',TextareaType::class,[
+                'label' => 'Description du local',
+                "attr" => [
+                    "class" => "form-control",
+                    "placeholder" => "Description du local"
+                ]
+            ])
         ;
     }
 

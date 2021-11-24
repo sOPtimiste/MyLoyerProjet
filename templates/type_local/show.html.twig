@@ -3,7 +3,13 @@
 {% block title %}TypeLocal{% endblock %}
 
 {% block body %}
-    <h1>TypeLocal</h1>
+
+<div class="mt-auto">
+
+    <Fieldset class="mt-3">
+        <legend class="h1 text-center  text-success">Detail du type local</legend>
+    </Fieldset>
+
 
     <table class="table">
         <tbody>
@@ -22,9 +28,19 @@
         </tbody>
     </table>
 
-    <a href="{{ path('type_local_index') }}">back to list</a>
+    <a href="{{ path('type_local_index') }}">
+        <span class="icon">
+            <i class="fas fa-arrow-circle-right"></i>
+        </span>
+        <spaan class="text mr-3">Retour</spaan>
+    </a>
 
-    <a href="{{ path('type_local_edit', {'id': type_local.id}) }}">edit</a>
+    <a href="{{ path('type_local_edit', {'id': type_local.id}) }}">
+        <span class="icon"><i class="fas fa-edit"></i></span>
+        <spaan class="text mr-3">Modifier</spaan>
+    </a>
 
     {{ include('type_local/_delete_form.html.twig') }}
+
+</div>
 {% endblock %}
