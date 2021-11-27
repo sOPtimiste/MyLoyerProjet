@@ -35,7 +35,7 @@ class ContratType extends AbstractType
                     "placeholder" => "Type de contrat"
                 ]
             ])
-            ->add('createAt',DateType::class)
+            //->add('dateContrat',DateType::class)
             ->add('duree_de_bail',IntegerType::class,[
                 'label' => 'Duree de bail',
                 "attr" => [
@@ -60,6 +60,7 @@ class ContratType extends AbstractType
             ->add('local')
             
             ->add('lois')
+            
         ;
     }
 

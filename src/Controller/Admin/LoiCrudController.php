@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Loi;
 use App\Form\ContratType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -18,6 +19,14 @@ class LoiCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Loi::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle(Crud::PAGE_INDEX, 'Liste des lois')
+            //->setEntityPermission($this->getEntityFqcn($this->getUser()))
+            ;
     }
 
     

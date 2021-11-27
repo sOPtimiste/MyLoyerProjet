@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Modification du profil utilisateur{{app.user.prenom}}
+{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="my-5">Modification de mon  profil</h1>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-light">
+                <h2 class="alert-heading">Informations générales</h2>
+                <hr>
+                {{ form_row(form.prenom) }}
+                {{ form_row(form.nom) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.age) }}
+                {{ form_row(form.telephone) }}
+                {{ form_row(form.profession) }}
+                {{ form_row(form.genre) }}
+               
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="alert alert-light">
+                <h2 class="alert-heading">Détails</h2>
+                <hr>
+                {{ form_row(form.nationalite) }}
+                {{ form_row(form.num_piece)}}
+                <hr>
+
+                <p>Si vous avez terminé vos modifications , vous pouvez les sauvegarder !</p>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-check"></i>
+                    Enregistrer les modifications</button>
+            </div>
+        </div>
+
+
+    </div>
+    {{ form_end(form) }}
+</div>
+
+
+{% endblock body %}

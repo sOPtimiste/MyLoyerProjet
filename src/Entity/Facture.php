@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=FactureRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Facture
 {
@@ -23,9 +24,9 @@ class Facture
     private $montant;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
-    private $createAt;
+    private $dateFacture;
 
     /**
      * @ORM\ManyToOne(targetEntity=Local::class, inversedBy="factures")
@@ -50,16 +51,20 @@ class Facture
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getDateFacture(): ?\DateTimeInterface
     {
-        return $this->createAt;
+        return $this->dateFacture;
     }
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
 
-    public function setCreateAt(\DateTimeImmutable $createAt): self
+    public function setDateFacture()
     {
-        $this->createAt = $createAt;
+        $this->dateFacture = new \DateTime();
 
-        return $this;
+       //return $this;
     }
 
     public function getLocal(): ?Local

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LoiRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Loi
 {
@@ -27,7 +28,7 @@ class Loi
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $dateLoi;
 
     /**
      * @ORM\Column(type="text")
@@ -61,16 +62,20 @@ class Loi
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTime
+    public function getDateLoi(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->dateLoi;
     }
+     /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
 
-    public function setCreatedAT(\DateTime $createdAT): self
+    public function setDateLoi()
     {
-        $this->date = $createdAT;
+        $this->dateLoi = new \DateTime();
 
-        return $this;
+        //return $this;
     }
 
     public function getDescription(): ?string

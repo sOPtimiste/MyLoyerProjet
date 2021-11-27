@@ -3,7 +3,7 @@
 {% block title %}Liste local{% endblock %}
 
 {% block body %}
-<h1 class="text-center  text-success">Liste des locaux</h1>
+<h1 class="text-center text-white mx-4" style="background-color: #459DEC;">Liste des locaux</h1>
 
 <div class="container mt-2">
     <a href="{{ path('local_new') }}">
@@ -40,9 +40,9 @@
                         <td>{{ local.longitude }}</td>
                         <td>{{ local.latitude }}</td>
                         <td>{{ local.typeLocal.type }}</td>
-                        <td>{{ local.typeLocal.description }}</td>
+                        <td>{{ local.typeLocal.description|slice(0, 10) ~ '...' }}</td>
                         <td>{{ local.site.nom}}</td>
-                        <td>{{ local.site.lieu}}</td>
+                        <td>{{ local.site.lieu|slice(0, 10) ~ '...'}}</td>
                         <td>
                             <a href="{{ path('local_show', {'id': local.id}) }}">
                                 <span class="icon"><i class="far fa-eye"></i></span>

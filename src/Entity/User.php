@@ -78,17 +78,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profession;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Locataire::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Locataire::class, inversedBy="users",cascade={"persist","remove"})
      */
     private $locataire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Bailleur::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Bailleur::class, inversedBy="users",cascade={"persist","remove"})
      */
     private $bailleur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Superviseur::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Superviseur::class, inversedBy="users",cascade={"persist","remove"})
      */
     private $superviseur;
 

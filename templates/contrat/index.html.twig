@@ -3,7 +3,7 @@
 {% block title %}liste contrat{% endblock %}
 
 {% block body %}
-<h1 class="text-center  text-success">Liste des contrats</h1>
+<h1 class="text-center  text-white mx-4" style="background-color: #459DEC;">Liste des contrats</h1>
 
 <div class="container mt-2">
     <a href="{{ path('contrat_new') }}">
@@ -18,7 +18,7 @@
                         <th>Nom</th>
                         <th>TypeCo</th>
                         <th>Local</th>
-                        <th>CreateAt</th>
+                        <th>Date</th>
                         <th>DureeBail</th>
                         <th>Caution</th>
                         <th>Mensualite</th>
@@ -31,7 +31,7 @@
                         <td>{{ contrat.nom }}</td>
                         <td>{{ contrat.typeContrat }}</td>
                         <td>{{ contrat.local }}</td>
-                        <td>{{ contrat.createAt ? contrat.createAt|date('d-m-Y') : '' }}</td>
+                        <td>{{ contrat.dateContrat ? contrat.dateContrat|date('d-m-Y') : '' }}</td>
                         <td>{{ contrat.dureeDeBail }} /mois</td>
                         <td>{{ contrat.montantDeCotion }} FCFA</td>
                         <td>{{ contrat.montantDuMensualite }} FCFA</td>

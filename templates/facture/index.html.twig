@@ -3,7 +3,7 @@
 {% block title %}Facture index{% endblock %}
 
 {% block body %}
-<h1 class="text-center  text-success">Liste des facture</h1>
+<h1 class="text-center text-white mx-4" style="background-color: #459DEC;">Liste des facture</h1>
 <div class="container mt-2">
     <a href="{{ path('facture_new') }}">
         <span class="icon"><i class="fas fa-plus"></i></span>
@@ -16,7 +16,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Montant</th>
-                        <th>Date de creattion</th>
+                        <th>Date de creation</th>
                         <th>Nom Local</th>
                         <th>actions</th>
                     </tr>
@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{ facture.id }}</td>
                         <td>{{ facture.montant }} FCFA</td>
-                        <td>{{ facture.createAt ? facture.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ facture.dateFacture ? facture.dateFacture|date('d-m-Y H:i:s') : '' }}</td>
                         <td>{{ facture.local }}</td>
                         <td>
                             <a href="{{ path('facture_show', {'id': facture.id}) }}">

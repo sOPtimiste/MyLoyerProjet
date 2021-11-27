@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ContratRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Contrat
 {
@@ -32,7 +33,7 @@ class Contrat
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createAt;
+    private $dateContrat;
 
     /**
      * @ORM\Column(type="integer")
@@ -98,16 +99,20 @@ class Contrat
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getDateContrat(): ?\DateTimeInterface
     {
-        return $this->createAt;
+        return $this->dateContrat;
     }
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
 
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setDateContrat()
     {
-        $this->createAt = $createAt;
+        $this->dateContrat =  new \DateTime();
 
-        return $this;
+        //return $this;
     }
 
     public function getDureeDeBail(): ?int
