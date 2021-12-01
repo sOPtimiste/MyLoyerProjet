@@ -65,6 +65,11 @@ class Contrat
      */
     private $superviseur;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Locataire::class, inversedBy="no", cascade={"persist", "remove"})
+     */
+    private $locataire;
+
     public function __construct()
     {
         $this->lois = new ArrayCollection();
@@ -205,6 +210,18 @@ class Contrat
     public function setSuperviseur(?Superviseur $superviseur): self
     {
         $this->superviseur = $superviseur;
+
+        return $this;
+    }
+
+    public function getLocataire(): ?Locataire
+    {
+        return $this->locataire;
+    }
+
+    public function setLocataire(?Locataire $locataire): self
+    {
+        $this->locataire = $locataire;
 
         return $this;
     }

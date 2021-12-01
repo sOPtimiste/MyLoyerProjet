@@ -20,8 +20,8 @@
                         <th>Nom</th>
                         <th>Adresse</th>
                         <th>Etat</th>
-                        <th>Longitude</th>
-                        <th>Latitude</th>
+                        {#<th>Longitude</th>
+                        <th>Latitude</th>#}
                         <th>TypeLocal</th>
                         <th>Description</th>
                         <th>nomSite</th>
@@ -37,8 +37,8 @@
                         <td>{{ local.nom }}</td>
                         <td>{{ local.adresse }}</td>
                         <td>{{ local.isEtat ? 'disponible' : 'occupe' }}</td>
-                        <td>{{ local.longitude }}</td>
-                        <td>{{ local.latitude }}</td>
+                        {#<td>{{ local.longitude }}</td>
+                        <td>{{ local.latitude }}</td>#}
                         <td>{{ local.typeLocal.type }}</td>
                         <td>{{ local.typeLocal.description|slice(0, 10) ~ '...' }}</td>
                         <td>{{ local.site.nom}}</td>

@@ -36,7 +36,7 @@ class LoiCrudController extends AbstractCrudController
             //IdField::new('id'),
             TextField::new('libelle'),
             //DateTimeField::new('date'),
-            //DateTimeField::new('createdAt')->setFormat('Y-MM-dd HH:mm')->renderAsNativeWidget(),
+            //DateTimeField::new('dateLoi')->setFormat('d-m-Y')->renderAsNativeWidget(),
             TextEditorField::new('description'),
             CollectionField::new('contrats')
                     ->setEntryType(ContratType::class)

@@ -60,6 +60,7 @@ class ContratType extends AbstractType
             ->add('local')
             
             ->add('lois')
+            ->add('locataire')
             
         ;
     }

@@ -44,6 +44,11 @@ class Locataire
      */
     private $messages;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Contrat::class, mappedBy="locataire", cascade={"persist", "remove"})
+     */
+    private $no;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -149,5 +154,32 @@ class Locataire
         }
 
         return $this;
+    }
+
+    public function getNo(): ?Contrat
+    {
+        return $this->no;
+    }
+
+    public function setNo(?Contrat $no): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($no === null && $this->no !== null) {
+            $this->no->setLocataire(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($no !== null && $no->getLocataire() !== $this) {
+            $no->setLocataire($this);
+        }
+
+        $this->no = $no;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->tuteur;
     }
 }

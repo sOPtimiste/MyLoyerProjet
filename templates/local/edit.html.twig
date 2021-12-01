@@ -4,7 +4,7 @@
 
 {% block body %}
 <fieldset class="mt-3 text-dark">
-    <legend class="h1 text-center  text-success">Modification du local</legend>
+    <legend class="text-center  text-white mx-4" style="background-color: #459DEC;">Modification du local</legend>
     {{ include('local/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('local_index') }}">

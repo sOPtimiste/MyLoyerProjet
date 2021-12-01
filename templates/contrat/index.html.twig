@@ -16,9 +16,11 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>TypeCo</th>
+                        <th>Locataire</th>
+                        <th>Bailleur</th>
+                        {#<th>TypeCo</th>#}
                         <th>Local</th>
-                        <th>Date</th>
+                        <th>Date Contrat</th>
                         <th>DureeBail</th>
                         <th>Caution</th>
                         <th>Mensualite</th>
@@ -29,7 +31,9 @@
                     {% for contrat in contrats %}
                     <tr>
                         <td>{{ contrat.nom }}</td>
-                        <td>{{ contrat.typeContrat }}</td>
+                        <td>{{ contrat.locataire}}</td>
+                        <td>{{ app.user.prenom }} {{ app.user.nom }}</td>
+                        {#<td>{{ contrat.typeContrat }}</td>#}
                         <td>{{ contrat.local }}</td>
                         <td>{{ contrat.dateContrat ? contrat.dateContrat|date('d-m-Y') : '' }}</td>
                         <td>{{ contrat.dureeDeBail }} /mois</td>
@@ -58,7 +62,4 @@
 </div>
 
 
-{% block js %}
-
-{% endblock js %}
 {% endblock %}

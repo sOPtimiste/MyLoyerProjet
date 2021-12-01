@@ -35,8 +35,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('home')}}">
-                <div class="logo"> <img class="rounded-circle" src="{{asset('img/logo.png')}}"
-                        width="70px;" alt="..."></div>
+                <div class="logo"> <img class="rounded-circle" src="{{asset('img/logo.png')}}" width="70px;" alt="...">
+                </div>
             </a>
 
             <!-- Divider -->
@@ -130,7 +130,7 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{path('loi_index')}}">
-                   <span class="icon"> <i class="fas fa-gavel"></i></span>
+                    <span class="icon"> <i class="fas fa-gavel"></i></span>
                     <span class="text">Lois</span></a>
             </li>
 
@@ -429,10 +429,11 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#example').DataTable();
-            } )
+        })
     </script>
+    
 
     {% endblock %}
 </body>
